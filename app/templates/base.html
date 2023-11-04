@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    
+
+    <head>
+      {% if title %}
+      <title>{{ title }} - App</title>
+      {% else %}
+      <title>Welcome to App</title>
+      {% endif %}
+    </head>
+    
+    
+    <body>
+      <!-- This div is my Nav bar links -->
+        <div>
+          App:
+          <a href="/index">Home</a>
+          <a href="/login">Login</a>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %} <!-- This ends the if statement -->
+        {% endwith %} <!-- This ends the with statement -->
+        {% block content %}{% endblock %}
+    </body>
+
+
+</html>
